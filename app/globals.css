@@ -10,15 +10,15 @@
     "Segoe UI", sans-serif;
 
   /* Colores base */
-  --bg-body: #ecf4ff;         /* fondo general azulado suave */
-  --bg-card: #ffffff;         /* tarjetas */
-  --text-main: #0f172a;       /* texto principal */
-  --text-muted: #6b7280;      /* texto secundario */
+  --bg-body: #ecf4ff; /* fondo general azulado suave */
+  --bg-card: #ffffff; /* tarjetas */
+  --text-main: #0f172a; /* texto principal */
+  --text-muted: #6b7280; /* texto secundario */
   --border-soft: rgba(148, 163, 184, 0.4);
 
-  /* Acentos principales (competencia ML) */
-  --accent: #2563eb;          /* azul eléctrico principal */
-  --accent-soft: rgba(37, 99, 235, 0.9);
+  /* Acentos principales (azul más celeste) */
+  --accent: #3b82f6; /* azul celeste intenso */
+  --accent-soft: rgba(59, 130, 246, 0.95);
 
   /* Acento complementario (amarillo para badges/botones secundarios) */
   --accent-alt: #facc15;
@@ -74,16 +74,14 @@ body {
   background-color: var(--bg-card);
   border-radius: 1rem;
   border: 1px solid var(--border-soft);
-  box-shadow:
-    0 18px 45px rgba(15, 23, 42, 0.14),
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14),
     0 8px 20px rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(10px);
 }
 
 /* ===== Sombra suave estilo e-commerce ===== */
 .shadow-soft-xl {
-  box-shadow:
-    0 18px 45px rgba(15, 23, 42, 0.14),
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14),
     0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
@@ -152,7 +150,13 @@ body {
 
 /* ===== Fondo hero tipo “banner” (opcional, por si lo quieres usar) ===== */
 .hero-gradient {
-  background: radial-gradient(circle at 0% 0%, #ffffff 0, #e0f2fe 35%, #dbeafe 70%, #ecf4ff 100%);
+  background: radial-gradient(
+    circle at 0% 0%,
+    #ffffff 0,
+    #e0f2fe 35%,
+    #dbeafe 70%,
+    #ecf4ff 100%
+  );
 }
 
 /* ===== Scrollbar más limpio (solo navegadores WebKit) ===== */
@@ -172,4 +176,33 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Texto animado para "Smart" del logo */
+.logo-smart-text {
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #1d9bf0,
+    #1d4ed8,
+    #38bdf8
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 14px rgba(37, 99, 235, 0.18);
+  animation: smartGradient 6s ease-in-out infinite;
+}
+
+@keyframes smartGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

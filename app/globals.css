@@ -1,26 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* ===== Variables base (tema claro estilo marketplace) ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Fuente principal */
+  --font-primary: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  /* Colores base */
+  --bg-body: #ecf4ff;         /* fondo general azulado suave */
+  --bg-card: #ffffff;         /* tarjetas */
+  --text-main: #0f172a;       /* texto principal */
+  --text-muted: #6b7280;      /* texto secundario */
+  --border-soft: rgba(148, 163, 184, 0.4);
+
+  /* Acentos principales (competencia ML) */
+  --accent: #2563eb;          /* azul eléctrico principal */
+  --accent-soft: rgba(37, 99, 235, 0.9);
+
+  /* Acento complementario (amarillo para badges/botones secundarios) */
+  --accent-alt: #facc15;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== Base del documento ===== */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  @apply antialiased;
+}
+
+/* ===== Contenedores ===== */
+
+/* Contenedor “global” viejo (por si ya lo usas) */
+.container-main {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contenedor genérico usado en los componentes (Navbar, Hero, etc.) */
+.container {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ===== Espaciado de secciones ===== */
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ===== Tarjetas reutilizables ===== */
+.card-base {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  border: 1px solid var(--border-soft);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.14),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Sombra suave estilo e-commerce ===== */
+.shadow-soft-xl {
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.14),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* ===== Badges / chips pequeños ===== */
+.badge-pill {
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ===== Kicker de secciones (texto pequeño arriba del título) ===== */
+.section-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(148 163 184);
+}
+
+/* ===== Clases de color personalizadas usadas en JSX ===== */
+
+/* Texto */
+.text-text-main {
+  color: var(--text-main);
+}
+
+.text-text-muted {
+  color: var(--text-muted);
+}
+
+/* Fondos */
+.bg-bg-body {
+  background-color: var(--bg-body);
+}
+
+.bg-bg-card {
+  background-color: var(--bg-card);
+}
+
+/* Bordes suaves */
+.border-border-soft {
+  border-color: var(--border-soft);
+}
+
+/* Acentos principales */
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-accent-soft {
+  color: var(--accent-soft);
+}
+
+/* Acento complementario (amarillo) */
+.bg-accent-alt {
+  background-color: var(--accent-alt);
+}
+
+.text-accent-alt {
+  color: var(--accent-alt);
+}
+
+/* ===== Fondo hero tipo “banner” (opcional, por si lo quieres usar) ===== */
+.hero-gradient {
+  background: radial-gradient(circle at 0% 0%, #ffffff 0, #e0f2fe 35%, #dbeafe 70%, #ecf4ff 100%);
+}
+
+/* ===== Scrollbar más limpio (solo navegadores WebKit) ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e5edf9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
